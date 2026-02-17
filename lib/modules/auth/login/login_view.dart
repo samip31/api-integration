@@ -1,20 +1,53 @@
-import 'package:democlass/modules/auth/register/register_repository.dart';
-import 'package:democlass/service/api_client.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:democlass/modules/auth/login/login_controller.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LoginController extends GetxController {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  RegisterRepository registerRepository = RegisterRepository();
-  login() async {
-    Map body = {
+class LoginView extends StatelessWidget {
+   LoginView({super.key});
+  LoginController loginController = Get.put(LoginController());
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Login",),
+      backgroundColor: Colors.blue,),
+      body: SafeArea(child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+        children: [
+          Text("Email"),
+         TextField(
+           controller: loginController.emailController,
+         ),
+          SizedBox(
+            height: 40,
+          ),
+          Text("Password"),
+          TextField(
+            controller: loginController.passwordController,
+          ),
+          SizedBox(height: 40,),
+          GestureDetector(
+            onTap: () async {
+              await loginController.login(context);
+            },
+            child: Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.green,
+              ),
 
-      "email": emailController.text,
-      "password": passwordController.text,
-    };
-    final response = await registerRepository.register(body);
-    if(response.status == ApiStatus.SUCCESS){
-    }
+              child: Center(
+                child: Text(
+                  "Log In",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
+          ),
+        ],
+            ),
+      )),);
   }
 }

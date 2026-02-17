@@ -37,11 +37,13 @@ class RegisterView extends StatelessWidget {
                     ),
                   ),
                   Text("Sign in to your Account"),
+
                   SizedBox(height: 60),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text("Name"),
+
                       TextField(
                         controller: registerController.nameController,
                         decoration: InputDecoration(
@@ -60,11 +62,11 @@ class RegisterView extends StatelessWidget {
                       Text("Password"),
                       TextField(
                         controller: registerController.passwordController,
-
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           suffixIcon: Icon(Icons.visibility_off_sharp),
                         ),
+                        obscureText: true,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -75,9 +77,7 @@ class RegisterView extends StatelessWidget {
                           ),
                         ],
                       ),
-
                       SizedBox(height: 20),
-
                       GestureDetector(
                         onTap: () async {
                           await registerController.register();
@@ -92,7 +92,7 @@ class RegisterView extends StatelessWidget {
 
                           child: Center(
                             child: Text(
-                              "Log In",
+                              "Register",
                               style: TextStyle(color: Colors.white),
                             ),
                           ),

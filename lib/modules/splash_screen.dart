@@ -1,4 +1,5 @@
 import 'package:democlass/main.dart';
+import 'package:democlass/modules/auth/login/login_view.dart';
 import 'package:democlass/modules/hotels/hotel_view.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -26,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
       // User not logged in
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomePage()),
+        MaterialPageRoute(builder: (context) => LoginView()),
       );
     } else {
       // User already logged in

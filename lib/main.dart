@@ -1,4 +1,5 @@
 import 'package:democlass/example.dart';
+import 'package:democlass/modules/auth/login/login_view.dart';
 import 'package:democlass/modules/auth/register/register_view.dart';
 import 'package:democlass/modules/counter.dart';
 import 'package:democlass/modules/hotels/hotel_view.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(iconTheme: IconThemeData(color: Colors.white)),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: ExampleView(),
+      home:LoginView(),
     );
   }
 }

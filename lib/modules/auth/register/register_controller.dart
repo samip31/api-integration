@@ -15,6 +15,7 @@ class RegisterController extends GetxController {
       "email": emailController.text,
       "password": passwordController.text,
     };
+
     final response = await registerRepository.register(body);
     if(response.status == ApiStatus.SUCCESS){
     }

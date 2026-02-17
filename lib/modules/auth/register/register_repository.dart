@@ -38,3 +38,4 @@ class RegisterResponse {
     return data;
   }
 }
+
